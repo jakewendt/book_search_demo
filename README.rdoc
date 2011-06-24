@@ -1,0 +1,68 @@
+= Book Search Demo
+
+This app is being built simply to test full text search using sunspot/rsolr/solr.
+
+Just a simple collection of searchable nested resources.
+
+
+
+
+Which model is "searchable"?  Or all of them?  Do I add a searchable block to all?
+
+Then how do I search them all? Say "moses", and return verses containing "moses" AND book title containing "moses"?
+
+How to create a collection, group or version like Bible or New Testament or King James?  Tags?
+
+Book has Chapter has Verse/Paragraph/Page/Section 
+
+Book
+title
+author
+release date
+language
+extra text 
+
+Chapter acts_as_list or linked list or both? doesn't really matter in this example.
+position
+title
+number
+
+Verse/Paragraph/Page/Section acts_as_list or linked list or both? doesn't really matter in this example.
+position
+text ( < 65000 chars seems unnecessarily long.  how many chars on average paperback page?  ~1500 chars)
+longest bible verse is Esther 8:9 which is 81 words or 464 characters.
+novels are around 50,000 words so about 250,000 characters
+just stick with the default for now.  it is just a demo.
+
+download and parse bible as example as contains many books
+
+http://www.gutenberg.org/cache/epub/10/pg10.txt
+
+rake db:create
+rake db:migrate
+rake start sunspot task - before importing books
+rake app:import:bible   - imports, parses and indexes
+rake app:import:all_books #	add MANY more to really test search speed
+script/server
+
+start searching
+
+
+
+
+
+the book of life is interactive history being written now and my author fell asleep on the spacebar
+
+
+
+
+if intended to be real app, could add ...
+
+	add users and then ...
+
+	bookmarks
+
+	perhaps subscribe to book and email it 1 verse a day or whatever "rate" subscribed
+
+	allow users to write and share books?
+
