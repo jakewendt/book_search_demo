@@ -1,5 +1,12 @@
 <h1>Listing books</h1>
 
+<% form_tag( books_path, :method => :get ) do %>
+<p>
+  <%= text_field_tag :query, params[:query] %> 
+	<%= submit_tag "Search!", :name => nil %>
+</p>
+<% end %>
+
 <table>
   <tr>
     <th>Title</th>
