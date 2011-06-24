@@ -1,0 +1,18 @@
+<p>
+  <b>Book:</b>
+  <%=h @chapter.book_id %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @chapter.position %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @chapter.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>

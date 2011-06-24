@@ -1,0 +1,24 @@
+<h1>Editing verse</h1>
+
+<% form_for(@verse) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :chapter_id %><br />
+    <%= f.text_field :chapter_id %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @verse %> |
+<%= link_to 'Back', verses_path %>

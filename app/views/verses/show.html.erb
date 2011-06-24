@@ -1,0 +1,18 @@
+<p>
+  <b>Chapter:</b>
+  <%=h @verse.chapter_id %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @verse.position %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @verse.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_verse_path(@verse) %> |
+<%= link_to 'Back', verses_path %>
