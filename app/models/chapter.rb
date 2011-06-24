@@ -1,2 +1,13 @@
 class Chapter < ActiveRecord::Base
+	acts_as_list :scope => :book
+	belongs_to :book, :counter_cache => true
+	has_many :verses, :dependent => :destroy
+
+#	searchable do
+#		text :title, :default_boost => 2
+#	end
+
+	def to_s
+		position	#title
+	end
 end
