@@ -7,30 +7,30 @@ Just a simple collection of searchable nested resources.
 
 == Installation
 
-rake db:create
-rake db:migrate
-rake sunspot:solr:start
-rake app:import
-script/server
+ rake db:create
+ rake db:migrate
+ rake sunspot:solr:start
+ rake app:import
+ script/server
 
 
 == Creation
 
-mv Rakefile Rakefile.orig
-cat Rakefile.orig | sed "s/rake\/rdoctask/rdoc\/task/" > Rakefile
+ mv Rakefile Rakefile.orig
+ cat Rakefile.orig | sed "s/rake\/rdoctask/rdoc\/task/" > Rakefile
 
-rake db:migrate
+ rake db:migrate
 
-mv config/environment.rb config/environment.rb.orig
-cat config/environment.rb.orig | awk '{sub(/\|config\|/,"&\n\tconfig.gem \"sunspot_rails\"");print}' > config/environment.rb
+ mv config/environment.rb config/environment.rb.orig
+ cat config/environment.rb.orig | awk '{sub(/\|config\|/,"&\n\tconfig.gem \"sunspot_rails\"");print}' > config/environment.rb
 
-echo "require 'sunspot/rails/tasks'" >> Rakefile
+ echo "require 'sunspot/rails/tasks'" >> Rakefile
 
-script/generate sunspot
+ script/generate sunspot
 
-#	adds solr/conf/* and starts solr in background
-#	use rake sunspot:solr:run to see it running in the foreground
-rake sunspot:solr:start
+ #	adds solr/conf/* and starts solr in background
+ #	use rake sunspot:solr:run to see it running in the foreground
+ rake sunspot:solr:start
 
 
 
@@ -46,24 +46,24 @@ How to create a collection, group or version like Bible or New Testament or King
 
 Book has Chapter has Verse/Paragraph/Page/Section 
 
-Book
-title
-author
-release date
-language
-extra text 
+ Book
+  title
+  author
+  release date
+  language
+  extra text 
 
-Chapter acts_as_list or linked list or both? doesn't really matter in this example.
-position
-title
-number
+ Chapter acts_as_list or linked list or both? doesn't really matter in this example.
+  position
+  title
+  number
 
-Verse/Paragraph/Page/Section acts_as_list or linked list or both? doesn't really matter in this example.
-position
-text ( < 65000 chars seems unnecessarily long.  how many chars on average paperback page?  ~1500 chars)
-longest bible verse is Esther 8:9 which is 81 words or 464 characters.
-novels are around 50,000 words so about 250,000 characters
-just stick with the default for now.  it is just a demo.
+ Verse/Paragraph/Page/Section acts_as_list or linked list or both? doesn't really matter in this example.
+  position
+  text ( < 65000 chars seems unnecessarily long.  how many chars on average paperback page?  ~1500 chars)
+  longest bible verse is Esther 8:9 which is 81 words or 464 characters.
+  novels are around 50,000 words so about 250,000 characters
+  just stick with the default for now.  it is just a demo.
 
 download and parse bible as example as contains many books
 
@@ -75,11 +75,11 @@ start searching
 
 == References
 
-https://github.com/outoftime/sunspot
-http://collectiveidea.com/blog/archives/2011/03/08/full-text-searching-with-solr-and-sunspot/
-http://hemju.com/2011/01/04/full-text-search-with-sunspot-in-rails/
-http://masonoise.wordpress.com/2010/02/06/using-sunspot-for-free-text-search-with-redis/
-http://timcowlishaw.co.uk/post/3179661158/testing-sunspot-with-test-unit
+ https://github.com/outoftime/sunspot
+ http://collectiveidea.com/blog/archives/2011/03/08/full-text-searching-with-solr-and-sunspot/
+ http://hemju.com/2011/01/04/full-text-search-with-sunspot-in-rails/
+ http://masonoise.wordpress.com/2010/02/06/using-sunspot-for-free-text-search-with-redis/
+ http://timcowlishaw.co.uk/post/3179661158/testing-sunspot-with-test-unit
 
 
 
@@ -92,11 +92,11 @@ the book of life is interactive history being written now and my author fell asl
 
 if intended to be real app, could add ...
 
-	add users and then ...
+ add users and then ...
 
-	bookmarks
+ bookmarks
 
-	perhaps subscribe to book and email it 1 verse a day or whatever "rate" subscribed
+ perhaps subscribe to book and email it 1 verse a day or whatever "rate" subscribed
 
-	allow users to write and share books?
+ allow users to write and share books?
 
