@@ -5,11 +5,42 @@ This app is being built simply to test full text search using sunspot/rsolr/solr
 Just a simple collection of searchable nested resources.
 
 
+== Installation
+
+rake db:create
+rake db:migrate
+rake sunspot:solr:start
+rake app:import
+script/server
+
+
+== Creation
+
+mv Rakefile Rakefile.orig
+cat Rakefile.orig | sed "s/rake\/rdoctask/rdoc\/task/" > Rakefile
+
+rake db:migrate
+
+mv config/environment.rb config/environment.rb.orig
+cat config/environment.rb.orig | awk '{sub(/\|config\|/,"&\n\tconfig.gem \"sunspot_rails\"");print}' > config/environment.rb
+
+echo "require 'sunspot/rails/tasks'" >> Rakefile
+
+script/generate sunspot
+
+#	adds solr/conf/* and starts solr in background
+#	use rake sunspot:solr:run to see it running in the foreground
+rake sunspot:solr:start
+
+
+
+
+
 
 
 Which model is "searchable"?  Or all of them?  Do I add a searchable block to all?
 
-Then how do I search them all? Say "moses", and return verses containing "moses" AND book title containing "moses"?
+Then how do I search them all? Say "moses", and return verses containing "moses" AND book title containing "moses"?  Search verses, chapters or books?
 
 How to create a collection, group or version like Bible or New Testament or King James?  Tags?
 
@@ -38,14 +69,17 @@ download and parse bible as example as contains many books
 
 http://www.gutenberg.org/cache/epub/10/pg10.txt
 
-rake db:create
-rake db:migrate
-rake start sunspot task - before importing books
-rake app:import:bible   - imports, parses and indexes
-rake app:import:all_books #	add MANY more to really test search speed
-script/server
-
 start searching
+
+
+
+== References
+
+https://github.com/outoftime/sunspot
+http://collectiveidea.com/blog/archives/2011/03/08/full-text-searching-with-solr-and-sunspot/
+http://hemju.com/2011/01/04/full-text-search-with-sunspot-in-rails/
+http://masonoise.wordpress.com/2010/02/06/using-sunspot-for-free-text-search-with-redis/
+http://timcowlishaw.co.uk/post/3179661158/testing-sunspot-with-test-unit
 
 
 
@@ -54,7 +88,7 @@ start searching
 the book of life is interactive history being written now and my author fell asleep on the spacebar
 
 
-
+== Other
 
 if intended to be real app, could add ...
 
