@@ -14,7 +14,23 @@ class Chapter < ActiveRecord::Base
 		time :updated_at
 	end
 
+#	As the verse does not index anything from a chapter,
+#	this is unnecessary.
+#
+#	after_save :index_book_and_verses
+
 	def to_s
 		"#{book.title} #{position}"
 	end
+
+protected
+
+	def index_book_and_verses
+		book.index
+		verses.each do |v|
+			v.index
+		end
+		Sunspot.commit
+	end
+
 end

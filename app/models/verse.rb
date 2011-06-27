@@ -12,7 +12,21 @@ class Verse < ActiveRecord::Base
 		end
 	end
 
+#	As nothing indexes any fields from the verse,
+#	this is unnecessary.
+#
+#	after_save :index_book_and_chapter
+
 	def to_s
 		"#{chapter}:#{position}"
 	end
+
+protected
+
+	def index_book_and_chapter
+		chapter.index
+		chapter.book.index
+		Sunspot.commit
+	end
+
 end
