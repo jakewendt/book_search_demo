@@ -24,11 +24,11 @@ Just a simple collection of searchable nested resources.
  mv config/environment.rb config/environment.rb.orig
  cat config/environment.rb.orig | awk '{sub(/\|config\|/,"&\n\tconfig.gem \"sunspot_rails\"");print}' > config/environment.rb
 
-#	doesn't work.
-#	undefined method `searchable' for #<Class:0x103aed5b8>
-#echo "require 'sunspot/rails/tasks'" >> Rakefile
+ #	doesn't work.
+ #	undefined method `searchable' for #<Class:0x103aed5b8>
+ #echo "require 'sunspot/rails/tasks'" >> Rakefile
 
-cp /usr/lib/ruby/user-gems/1.8/gems/sunspot_rails-1.2.1/lib/sunspot/rails/tasks.rb lib/tasks/sunspot.rake
+ cp /usr/lib/ruby/user-gems/1.8/gems/sunspot_rails-1.2.1/lib/sunspot/rails/tasks.rb lib/tasks/sunspot.rake
 
  script/generate sunspot
 
@@ -50,6 +50,7 @@ How to create a collection, group or version like Bible or New Testament or King
 
 Book has Chapter has Verse/Paragraph/Page/Section 
 
+
  Book
   title
   author
@@ -57,10 +58,12 @@ Book has Chapter has Verse/Paragraph/Page/Section
   language
   extra text 
 
+
  Chapter acts_as_list or linked list or both? doesn't really matter in this example.
   position
   title
   number
+
 
  Verse/Paragraph/Page/Section acts_as_list or linked list or both? doesn't really matter in this example.
   position
@@ -68,6 +71,7 @@ Book has Chapter has Verse/Paragraph/Page/Section
   longest bible verse is Esther 8:9 which is 81 words or 464 characters.
   novels are around 50,000 words so about 250,000 characters
   just stick with the default for now.  it is just a demo.
+
 
 download and parse bible as example as contains many books
 
