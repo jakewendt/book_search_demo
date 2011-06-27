@@ -6,7 +6,12 @@ class Chapter < ActiveRecord::Base
 	searchable do
 		text :title, :default_boost => 2
 		integer :book_id
+		integer :verses_count
+		string :author do
+			book.author
+		end
 		time :created_at
+		time :updated_at
 	end
 
 	def to_s

@@ -15,6 +15,10 @@ class SearchesController < ApplicationController
 			with(:author, params[:author_s]) if params[:author_s]
 			facet :author	#	seems to work even though just in book
 
+#	kinda pointless, but nice to know it works
+#			facet :chapters_count
+#			facet :verses_count
+
 			order_by :created_at, :asc
 			paginate :page => params[:page]
 		end

@@ -6,6 +6,10 @@ class Verse < ActiveRecord::Base
 		text :body
 		integer :chapter_id
 		time :created_at
+		time :updated_at
+		string :author do 
+			chapter.book.author
+		end
 	end
 
 	def to_s

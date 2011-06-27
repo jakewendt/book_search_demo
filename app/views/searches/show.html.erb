@@ -30,6 +30,12 @@
    <% end %><%# unless @search.facet_response['facet_fields']['author_s'].empty? %>
   
   <% end %><%# if @search.facet_response ...%>
+
+
+
+
+
+
  </div><!-- id='facets' -->
 
  <div id='results'>
@@ -41,6 +47,7 @@
    </ul>
   <% end %>
   <p><%= will_paginate(@search.hits) %></p>
+  <p class='page_info'>Displaying page <%=@search.hits.current_page%> of <%=@search.hits.per_page%> out of <%=@search.total%> results</p>
  </div><!-- id='results' -->
 
 </div><!-- id='results_wrapper' -->
