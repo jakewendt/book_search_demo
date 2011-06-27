@@ -3,9 +3,10 @@ class Chapter < ActiveRecord::Base
 	belongs_to :book, :counter_cache => true
 	has_many :verses, :dependent => :destroy
 
-#	searchable do
-#		text :title, :default_boost => 2
-#	end
+	searchable do
+		text :title, :default_boost => 2
+		integer :book_id
+	end
 
 	def to_s
 		position	#title

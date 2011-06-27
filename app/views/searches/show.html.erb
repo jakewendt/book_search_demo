@@ -1,0 +1,18 @@
+<h1>Search</h1>
+
+<% form_tag( search_path, :method => :get ) do %>
+<p>
+  <%= text_field_tag :q, params[:q] %> 
+	<%= submit_tag "Search!", :name => nil %>
+</p>
+<% end %>
+
+<% if @results.facet_response &&
+	@results.facet_response['facet_fields'] &&
+	@results.facet_response['facet_fields']['class_name'].length > 0 %>
+<ul>
+<% @results.facet_response['facet_fields']['class_name'].each_slice(2) do |name,count| %>
+<li><%= "#{name}&nbsp;(#{count})"%></li>
+<% end %>
+</ul>
+<% end %>

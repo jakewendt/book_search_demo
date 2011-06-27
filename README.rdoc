@@ -24,7 +24,11 @@ rake db:migrate
 mv config/environment.rb config/environment.rb.orig
 cat config/environment.rb.orig | awk '{sub(/\|config\|/,"&\n\tconfig.gem \"sunspot_rails\"");print}' > config/environment.rb
 
-echo "require 'sunspot/rails/tasks'" >> Rakefile
+#	doesn't work.
+#	undefined method `searchable' for #<Class:0x103aed5b8>
+#echo "require 'sunspot/rails/tasks'" >> Rakefile
+
+cp /usr/lib/ruby/user-gems/1.8/gems/sunspot_rails-1.2.1/lib/sunspot/rails/tasks.rb lib/tasks/sunspot.rake
 
 script/generate sunspot
 

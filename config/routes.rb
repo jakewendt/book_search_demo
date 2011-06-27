@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :books
   map.resources :chapters
   map.resources :verses
+  map.resource  :search, :only => :show
 
 
   # The priority is based upon order of creation: first created -> highest priority.
