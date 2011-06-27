@@ -26,11 +26,14 @@ class Book < ActiveRecord::Base
 protected
 
 	def index_chapters_and_verses
+#	takes about 15 seconds to update all of Psalms
+		chapters.index
 		chapters.each do |c|
-			c.index
-			c.verses.each do |v|
-				v.index
-			end
+#			c.index
+#			c.verses.each do |v|
+#				v.index
+#			end
+			c.verses.index
 		end
 		Sunspot.commit
 	end

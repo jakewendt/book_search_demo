@@ -27,9 +27,10 @@ protected
 
 	def index_book_and_verses
 		book.index
-		verses.each do |v|
-			v.index
-		end
+		verses.index
+#		verses.each do |v|
+#			v.index
+#		end
 		Sunspot.commit
 	end
 
