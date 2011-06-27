@@ -3,6 +3,8 @@ class Book < ActiveRecord::Base
 
 	searchable do
 		text :title, :default_boost => 2
+		string :author
+		time :created_at
 	end
 
 	def to_s

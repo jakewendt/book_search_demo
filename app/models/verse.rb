@@ -5,9 +5,10 @@ class Verse < ActiveRecord::Base
 	searchable do
 		text :body
 		integer :chapter_id
+		time :created_at
 	end
 
 	def to_s
-		position	#body
+		"#{chapter}:#{position}"
 	end
 end

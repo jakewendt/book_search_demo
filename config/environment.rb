@@ -9,6 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 	config.gem "sunspot_rails"
 	config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
+	config.gem 'will_paginate'
 
 	# Settings in config/environments/* take precedence over those specified here.
 	# Application configuration should go into files in config/initializers
@@ -42,3 +43,11 @@ Rails::Initializer.run do |config|
 	# config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
 	# config.i18n.default_locale = :de
 end
+
+#	surprised this worked
+#	basically added the method :name to make sunspot happy
+#String.class_eval do
+#	def name
+#		self.to_s
+#	end
+#end

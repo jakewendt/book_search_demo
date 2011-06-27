@@ -20,12 +20,12 @@
     <td><%=h book.author %></td>
     <td><%=h book.other %></td>
     <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%#= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%#= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New book', new_book_path %>
+<%#= link_to 'New book', new_book_path %>

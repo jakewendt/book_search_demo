@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => "books", :action => 'index'
-  map.resources :books
-  map.resources :chapters
-  map.resources :verses
-  map.resource  :search, :only => :show
+  map.resources :books,    :only => [:show,:index]
+  map.resources :chapters, :only => [:show,:index]
+  map.resources :verses,   :only => [:show,:index]
+  map.resource  :search,   :only => :show
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,9 +6,10 @@ class Chapter < ActiveRecord::Base
 	searchable do
 		text :title, :default_boost => 2
 		integer :book_id
+		time :created_at
 	end
 
 	def to_s
-		position	#title
+		"#{book.title} #{position}"
 	end
 end
