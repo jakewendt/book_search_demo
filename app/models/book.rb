@@ -4,6 +4,13 @@ class Book < ActiveRecord::Base
 	searchable do
 		text :title, :default_boost => 2
 		text :other
+		text :body do
+			chapters.map {|c|
+				c.verses.map {|v|
+					v.body
+				}
+			}
+		end
 		integer :chapters_count
 		string :author
 		time :created_at
@@ -17,7 +24,7 @@ class Book < ActiveRecord::Base
 #	Should only call when necessary, and perhaps in the 
 #		background to avoid the delay.
 #	Create backgroundrd worker and set "reindex_my_associations" flag?
-	after_save :index_chapters_and_verses
+#	after_save :index_chapters_and_verses
 
 	def to_s
 		title
@@ -27,6 +34,7 @@ protected
 
 	def index_chapters_and_verses
 #	takes about 15 seconds to update all of Psalms
+#	this does not always seem to happen??
 		chapters.index
 		chapters.each do |c|
 #			c.index

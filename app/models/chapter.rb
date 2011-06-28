@@ -10,6 +10,11 @@ class Chapter < ActiveRecord::Base
 		string :author do
 			book.author
 		end
+		text :body do
+			verses.map {|v|
+				v.body
+			}
+		end
 		time :created_at
 		time :updated_at
 	end
