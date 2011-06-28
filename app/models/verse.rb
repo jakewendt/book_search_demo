@@ -14,6 +14,7 @@ class Verse < ActiveRecord::Base
 
 #	As nothing indexes any fields from the verse,
 #	this is unnecessary.
+#	Actually, not true anymore.
 #
 #	after_save :index_book_and_chapter
 

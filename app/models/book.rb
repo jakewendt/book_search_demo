@@ -35,13 +35,14 @@ protected
 	def index_chapters_and_verses
 #	takes about 15 seconds to update all of Psalms
 #	this does not always seem to happen??
-		chapters.index
+#	probably because its calling the Array#index and not the Sunspot#index
+#		chapters.index
 		chapters.each do |c|
-#			c.index
-#			c.verses.each do |v|
-#				v.index
-#			end
-			c.verses.index
+			c.index
+			c.verses.each do |v|
+				v.index
+			end
+#			c.verses.index
 		end
 		Sunspot.commit
 	end

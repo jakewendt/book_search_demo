@@ -21,6 +21,7 @@ class Chapter < ActiveRecord::Base
 
 #	As the verse does not index anything from a chapter,
 #	this is unnecessary.
+#	Actually, not true anymore.
 #
 #	after_save :index_book_and_verses
 
@@ -32,10 +33,10 @@ protected
 
 	def index_book_and_verses
 		book.index
-		verses.index
-#		verses.each do |v|
-#			v.index
-#		end
+#		verses.index
+		verses.each do |v|
+			v.index
+		end
 		Sunspot.commit
 	end
 
