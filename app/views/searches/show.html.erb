@@ -47,7 +47,7 @@
    </ul>
   <% end %>
   <p><%= will_paginate(@search.hits) %></p>
-  <p class='page_info'>Displaying page <%=@search.hits.current_page%> of <%=@search.hits.per_page%> out of <%=@search.total%> results</p>
+  <p class='page_info'>Displaying page <%=@search.hits.current_page%> of <%=@search.hits.total_pages%> out of <%=@search.total%> results</p>
  </div><!-- id='results' -->
 
 </div><!-- id='results_wrapper' -->
